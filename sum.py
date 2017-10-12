@@ -24,6 +24,24 @@ The sum of an empty list is zero::
 def sum_list(nums):
     """Using recursion, return the sum of numbers in a list."""
 
+    # e.g. [1, 2, 3] --> 1 + [2,3] --> 1 + 2 + [3] --> 1 + 2 + 3
+
+    # edge case: empty list
+    if len(nums) == 0:
+        return 0
+
+    # BASE
+        # when lst only 1 item, stop recursing and return remaining value
+    if len(nums) == 1:
+        return nums[0]
+
+    # PROGRESSION
+        # store sum
+        # call fn w/ list slicing of 1st item in current lst via [1:]
+        # return sum + fn
+    count = nums[0]
+
+    return count + sum_list(nums[1:])
 
 if __name__ == '__main__':
     import doctest
